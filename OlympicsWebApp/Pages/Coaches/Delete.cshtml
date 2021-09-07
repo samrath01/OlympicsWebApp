@@ -1,0 +1,38 @@
+﻿@page
+@model OlympicsWebApp.Pages.Coaches.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h1 class="text-center heading">Delete Coach Details</h1>
+
+
+<div>
+    <h4>Are You Sure to Remove This Coach Details?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Coach.CoachName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Coach.CoachName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Coach.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Coach.Country.CountryName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Coach.Discipline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Coach.Discipline.DisciplineName)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Coach.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>

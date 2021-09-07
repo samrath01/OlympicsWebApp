@@ -1,0 +1,42 @@
+﻿@page
+@model OlympicsWebApp.Pages.Medals.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center heading">Add Medal Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Medal.CountryID" class="control-label"></label>
+                <select asp-for="Medal.CountryID" class="form-control" asp-items="ViewBag.CountryID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medal.GoldMedal" class="control-label"></label>
+                <input asp-for="Medal.GoldMedal" class="form-control" />
+                <span asp-validation-for="Medal.GoldMedal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medal.BronzeMedal" class="control-label"></label>
+                <input asp-for="Medal.BronzeMedal" class="form-control" />
+                <span asp-validation-for="Medal.BronzeMedal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Medal.SilverMedal" class="control-label"></label>
+                <input asp-for="Medal.SilverMedal" class="form-control" />
+                <span asp-validation-for="Medal.SilverMedal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Medal Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

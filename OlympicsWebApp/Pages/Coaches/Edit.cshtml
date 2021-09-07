@@ -1,0 +1,39 @@
+﻿@page
+@model OlympicsWebApp.Pages.Coaches.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center heading">Edit Coach Details</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Coach.Id" />
+            <div class="form-group">
+                <label asp-for="Coach.CoachName" class="control-label"></label>
+                <input asp-for="Coach.CoachName" class="form-control" />
+                <span asp-validation-for="Coach.CoachName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coach.CountryID" class="control-label"></label>
+                <select asp-for="Coach.CountryID" class="form-control" asp-items="ViewBag.CountryID"></select>
+                <span asp-validation-for="Coach.CountryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coach.DisciplineID" class="control-label"></label>
+                <select asp-for="Coach.DisciplineID" class="form-control" asp-items="ViewBag.DisciplineID"></select>
+                <span asp-validation-for="Coach.DisciplineID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Coach Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

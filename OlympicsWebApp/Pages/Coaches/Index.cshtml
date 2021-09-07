@@ -1,0 +1,30 @@
+﻿@page
+@model OlympicsWebApp.Pages.Coaches.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center heading">All Coaches</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Coach</a>
+</p>
+<div class="row">
+    @foreach (var item in Model.Coach)
+    {
+        <div class="col-3">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">@item.CoachName</h4>
+                    <p>Country: @item.Country.CountryName</p>
+                    <p>Discipline: @item.Discipline.DisciplineName</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="./Edit" class="btn btn-secondary mr-2" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page="./Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

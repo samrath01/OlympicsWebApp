@@ -1,0 +1,27 @@
+﻿@page
+@model OlympicsWebApp.Pages.Countries.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 class="text-center heading">All Countries</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Country</a>
+</p>
+<div class="row">
+    @foreach (var item in Model.Country)
+    {
+        <div class="col-3">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.CountryName)</h4>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="./Edit" class="btn btn-secondary mr-2" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page="./Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@page
+@model OlympicsWebApp.Pages.Countries.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center heading">Delete Country Details</h1>
+
+
+<div>
+    <h4>Are You Sure to Remove Country Details?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Country.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+</div>
